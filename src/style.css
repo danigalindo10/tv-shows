@@ -1,3 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: bisque;
+  /* background: url(./assets/background.jpg); */
+  background-color: #e0ce00;
+  color: black;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  height: 70px;
+  background-color: black;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.search-form {
+  margin: auto;
+  margin-top: 50px;
+  width: fit-content;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: black;
+  height: 40px;
+  border-radius: 50px;
+  padding: 10px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  color: #f5f5f5;
+  background: none;
+}
+
+.search-box button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  margin: 60px auto 80px auto;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 5px 3px gray;
+}
+
+.title h1 {
+  font-size: 75px;
+  color: black;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-align: center;
+  font-family: 'Abril Fatface', cursive;
+}
+
+.title p {
+  margin-top: 20px;
+  color: black;
+  text-align: center;
+  width: 60%;
+  line-height: 2.5rem;
+  font-size: 30px;
+  text-shadow: none;
+  font-family: 'Abril Fatface', cursive;
+}
+
+.logo {
+  display: flex;
+  text-decoration: none;
+  color: #e0ce00;
+}
+
+.logo i {
+  display: flex;
+  position: absolute;
+  font-size: 30px;
+  color: #e0ce00;
+}
+
+.logo p {
+  font-size: 25px;
+  font-weight: bold;
+  color: #e0ce00;
+  text-decoration: none;
+  padding-left: 50px;
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+
+  /* font-family: 'Abril Fatface', cursive; */
+}
+
+.links li {
+  list-style: none;
+  color: white;
+}
+
+.links li a {
+  color: var(--color1);
+  text-decoration: none;
+}
+
+/* CARD STYLES */
+
+.grid-container {
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 120px;
+}
+
+.card {
+  border-radius: 30px;
+  background-color: black;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px;
+}
+
+.card:hover {
+  border: white solid 1px;
+}
+
+.image-container {
+  width: 100%;
+  height: 200px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.fa-heart {
+  color: rgb(148, 148, 148);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.fa-heart:hover {
+  color: rgb(250, 53, 53);
+}
+
+.footer {
+  color: white;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+}
+
+.footer-link {
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+}
+
+@media only screen and (max-width: 425px) {
+  .text-logo {
+    display: none;
+  }
 }

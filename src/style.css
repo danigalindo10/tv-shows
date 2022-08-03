@@ -223,6 +223,7 @@ span {
   opacity: 0.9;
   backdrop-filter: blur(4.5px);
   display: flex;
+}
 
 .comments-button {
   display: block;

@@ -196,6 +196,8 @@ h2.item-title {
 
 span {
   font-size: 18px;
+  color: #e0ce00;
+  font-weight: bold;
 }
 
 .fa-heart {

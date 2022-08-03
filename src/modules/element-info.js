@@ -1,6 +1,7 @@
+import Modal from "./modal/modalpopup";
 // CREATE ELEMENTS BASED ON INDEX.HTML
 class elementInfo {
-  static renderCard = (title, imgUrl) => {
+  static renderCard = (title, imgUrl, id, summary) => {
     const cardContainer = document.querySelector('.grid-container');
     const card = document.createElement('div');
     card.classList.add('card');
@@ -29,7 +30,7 @@ class elementInfo {
     commentsButton.classList.add('comments-button');
     commentsButton.textContent = 'Comments';
     commentsButton.addEventListener('click', () => {
-      // display card
+     Modal(title, imgUrl, id, summary);
     });
 
     cardContainer.append(card);

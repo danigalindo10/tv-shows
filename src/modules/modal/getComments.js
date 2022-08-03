@@ -1,4 +1,4 @@
-import { appId, baseUrl } from "./api.js";
+import { appId, baseUrl } from "../api.js";
 
 const getComments = async (id) => {
     const response = await fetch(`${appId}/${baseUrl}/comments?item_id=${id}`, {

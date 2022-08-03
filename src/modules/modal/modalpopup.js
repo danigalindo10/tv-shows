@@ -1,5 +1,6 @@
 import getComments from './getComments.js';
 import postComments from './postcomments.js';
+import getCommentsCounter from './commentCounter.js';
 
 const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
     const Modal = document.querySelector('.modal');
@@ -15,7 +16,7 @@ const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
     const dataSummary = document.createElement('div');
     dataSummary.classList.add('data-summary');
     dataSummary.innerHTML = datasummary;
-    imageSummary.append(imagePopUp);
+    imageSummary.append(imagePopUp, dataSummary);
 
     const dataInfo = document.createElement('div');
     dataInfo.classList.add('data-info');
@@ -45,21 +46,21 @@ const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
     headerInfo.textContent = 'Comments';
     rowInfo.append(dateInfo, nameInfo, headerInfo);
 
-    // const cardBody = document.createElement('card-body');
-    // cardBody.classList.add('card-body');
-    // commentsCard.append(rowInfo, cardBody);
+    const cardBody = document.createElement('card-body');
+    cardBody.classList.add('card-body');
+    commentsCard.append(rowInfo, cardBody);
 
-    // const commentUpdate = async () => {
-    //     const comm = await getComments(dataid).catch(() => []);
-    //     if (comm.length) {
-    //         createComments(comm);
-    //         const commentCount = getCommentsCount();
-    //         comments.textContent = `comments (${commentCount})`;
-    //     } else {
-    //         comments.textContent = 'comments (0)';
-    //     }
-    // };
-    // commentUpdate();
+    const commentUpdate = async () => {
+        const comm = await getComments(dataid).catch(() => []);
+        if (comm.length) {
+            createComments(comm);
+            const getCommentsCounter = getCommentsCounter();
+            comments.textContent = `comments (${commentCounter})`;
+        } else {
+            comments.textContent = 'comments (0)';
+        }
+    };
+    commentUpdate();
      const formContainer = document.createElement('div');
      formContainer.classList.add('form-container');
      const h3 = document.createElement('h3');

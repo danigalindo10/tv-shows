@@ -188,6 +188,23 @@ nav {
   display: flex;
 }
 
+.modal-popUp {
+  text-align: center;
+}
+
+.popup-title-container {
+  float: right;
+}
+
+ .data-summary {
+  margin: 10px;
+  padding: 15px;
+} 
+
+.image-popup {
+  padding: 2%;
+}
+
 .footer {
   color: white;
   background-color: #000;

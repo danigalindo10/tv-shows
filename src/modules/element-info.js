@@ -1,3 +1,4 @@
+import Modal from './modal/modalpopup';
 import addLike from './likes/postLikes';
 
 // CREATE ELEMENTS BASED ON INDEX.HTML
@@ -41,6 +42,8 @@ class elementInfo {
     const commentsButton = document.createElement('button');
     commentsButton.classList.add('comments-button');
     commentsButton.textContent = 'Comments';
+
+    commentsButton.addEventListener('click', () => Modal(title, imgUrl, itemID, summary));
 
     // ADD LIKES - RECORDED ON THE Involvement API
     heartIcon.addEventListener('click', async (e) => {

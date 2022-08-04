@@ -35,10 +35,7 @@ class elementInfo {
 
     cardContainer.append(card);
     card.append(imageContainer, itemInfo, commentsButton);
-
-    imageContainer.append(image);
-    itemInfo.append(itemTitle, likesContainer);
-    likesContainer.append(likeIcon);
+    
   };
 }
 

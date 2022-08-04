@@ -1,4 +1,4 @@
-document.body.innerHTML = ` 
+const innerHTML = `
     <header>
       <nav>
         <div class="logo">
@@ -42,3 +42,5 @@ document.body.innerHTML = `
       <p>Created By Daniel Galindo and Titi as part of Microverse Bootcamp curriculum</p>
     </footer>
 `;
+
+export default innerHTML;

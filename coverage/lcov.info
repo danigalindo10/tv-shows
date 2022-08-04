@@ -71,6 +71,16 @@ BRF:0
 BRH:0
 end_of_record
 TN:
+SF:src/modules/test/setup.js
+FNF:0
+FNH:0
+DA:1,1
+LF:1
+LH:1
+BRF:0
+BRH:0
+end_of_record
+TN:
 SF:src/modules/test/shows.js
 FNF:0
 FNH:0

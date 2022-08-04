@@ -99,5 +99,4 @@ const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
     });
 };
 
-
 export default Modal;

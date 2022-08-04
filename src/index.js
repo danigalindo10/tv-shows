@@ -1,7 +1,5 @@
 import './style.css';
-import getShows from './modules/get-shows';
+import populate from './modules/populate';
 
 // initialize elements
-document.addEventListener('DOMContentLoaded', () => {
-  getShows();
-});
+document.addEventListener('DOMContentLoaded', populate);

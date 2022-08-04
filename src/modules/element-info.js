@@ -1,4 +1,4 @@
-import Modal from "./modal/modalpopup";
+import Modal from './modal/modalpopup';
 // CREATE ELEMENTS BASED ON INDEX.HTML
 class elementInfo {
   static renderCard = (title, imgUrl, id, summary) => {
@@ -30,12 +30,11 @@ class elementInfo {
     commentsButton.classList.add('comments-button');
     commentsButton.textContent = 'Comments';
     commentsButton.addEventListener('click', () => {
-     Modal(title, imgUrl, id, summary);
+      Modal(title, imgUrl, id, summary);
     });
 
     cardContainer.append(card);
     card.append(imageContainer, itemInfo, commentsButton);
-    
   };
 }
 

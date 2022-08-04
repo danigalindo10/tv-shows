@@ -1,5 +1,5 @@
 import { tvApi } from './api';
-import elementInfo from './element-info.js';
+import elementInfo from './element-info';
 
 // GET SHOWS FROM API https://www.tvmaze.com/api/shows
 const getShows = async () => {

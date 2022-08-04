@@ -1,8 +1,8 @@
-import getShows from '../get-shows.js';
+import getShows from '../get-shows';
 
 const populate = async () => {
-    await getShows();
-    renderShows()
+  await getShows();
+  renderShows();
 };
 
 export default populate;

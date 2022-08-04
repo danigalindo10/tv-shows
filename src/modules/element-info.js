@@ -1,4 +1,3 @@
-// import modal from './modal/modal';
 import addLike from './likes/postLikes';
 
 // CREATE ELEMENTS BASED ON INDEX.HTML
@@ -18,7 +17,6 @@ class elementInfo {
     const image = document.createElement('img');
     image.classList.add('item-image');
     image.src = imgUrl;
-
     const itemInfo = document.createElement('div');
     itemInfo.classList.add('item-info');
 

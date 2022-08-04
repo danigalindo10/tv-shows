@@ -19,7 +19,7 @@ const getShows = async () => {
   }
   const response = await fetch(`${tvApi}/show`);
   const data = await response.json();
-
+  console.log(data);
   // we can display more or less shows if we like
   shows = data.slice(0, 99);
   const likes = (await getTotalLikes()).reduce((likesById, like) => {

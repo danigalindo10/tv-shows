@@ -1,21 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--Font Awesome-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <title>Tv Shows</title>
-
-  <script defer src="runtime-e05661f8fcd99e6508ec.js"></script><script defer src="main-e05661f8fcd99e6508ec.js"></script></head>
-
-  <body>
+const innerHTML = `
     <header>
       <nav>
         <div class="logo">
@@ -58,5 +41,6 @@
     <footer class="footer">
       <p>Created By Daniel Galindo and Titi as part of Microverse Bootcamp curriculum</p>
     </footer>
-  </body>
-</html>
+`;
+
+export default innerHTML;

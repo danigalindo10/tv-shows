@@ -18,7 +18,6 @@ class elementInfo {
     const image = document.createElement('img');
     image.classList.add('item-image');
     image.src = imgUrl;
-
     const itemInfo = document.createElement('div');
     itemInfo.classList.add('item-info');
 

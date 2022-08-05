@@ -60,11 +60,13 @@ const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
   form.classList.add('form-comment');
   const name = document.createElement('input');
   name.classList.add('input-name');
+  name.placeholder = 'Enter you name...'
   const commentInput = document.createElement('textarea');
   commentInput.classList.add('text');
+  commentInput.placeholder = 'Write a message...'
   const commentBtn = document.createElement('button');
   commentBtn.classList.add('comment-btn');
-  commentBtn.textContent = 'titi';
+  commentBtn.textContent = 'Submit';
   formContainer.append(h3, name, commentInput, form, commentBtn);
 
   commentBtn.addEventListener('click', async (e) => {

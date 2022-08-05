@@ -281,13 +281,22 @@ span {
   float: right;
 }
 
+.pop-title {
+  font-weight: 700;
+}
+
+h3 {
+  display: flex;
+}
+
 .data-summary {
   margin: 10px;
   padding: 15px;
+  font-weight: 700;
 }
 
 .image-popup {
-  padding: 2%;
+  border: 20px solid #000;
 }
 
 .footer {

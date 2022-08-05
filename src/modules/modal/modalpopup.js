@@ -39,6 +39,19 @@ const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
   const commentsCard = document.createElement('button');
   commentsCard.classList.add('comments');
 
+const commentUpdate = async () => {
+    const comm = await getComments(dataid).catch(() => []);
+    console.log(comm)
+    if (comm.length) {
+      createComments(comm, formContainer);
+      const commentsCount = getCommentsCounter();
+      comments.textContent = `comments (${commentsCount})`;
+    } else {
+      comments.textContent = 'comments (0)';
+    }
+  };
+  commentUpdate();
+
   const formContainer = document.createElement('div');
   formContainer.classList.add('form-container');
   const h3 = document.createElement('h3');
@@ -47,20 +60,17 @@ const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
   form.classList.add('form-comment');
   const name = document.createElement('input');
   name.classList.add('input-name');
-  name.placeholder = 'Enter your name...';
   const commentInput = document.createElement('textarea');
   commentInput.classList.add('text');
-  commentInput.placeholder = 'Write a message...';
   const commentBtn = document.createElement('button');
   commentBtn.classList.add('comment-btn');
-  commentBtn.textContent = 'submit';
+  commentBtn.textContent = 'titi';
   formContainer.append(h3, name, commentInput, form, commentBtn);
 
   commentBtn.addEventListener('click', async (e) => {
     e.preventDefault();
     console.log('hello');
     const details = await postComments(dataid, name.value, commentInput.value);
-    console.log(details);
     commentUpdate();
     form.reset();
   });

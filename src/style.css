@@ -248,12 +248,12 @@ span {
 }
 
 .individual-comment:nth-child(even) {
-  background-color: blue;
+  background-color: #fff;
 }
 
 .comment-area {
-  background-color: green;
-  height: 200px;
+  background-color: #e0ce00;
+  height: 20px;
   overflow-y: auto;
 }
 

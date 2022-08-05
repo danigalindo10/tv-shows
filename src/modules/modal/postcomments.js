@@ -4,13 +4,12 @@ const postComments = (id, username, comment) => fetch(`${baseUrl}/${appId}/comme
   method: 'POST',
   body: JSON.stringify({
     item_id: id,
-    username: username,
-    comment: comment,
+    username,
+    comment,
   }),
   headers: {
     'Content-type': 'application/json; charset=UTF-8',
   },
 });
-
 
 export default postComments;

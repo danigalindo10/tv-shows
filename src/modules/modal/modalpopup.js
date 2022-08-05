@@ -1,3 +1,4 @@
+/* eslint-disable */
 import getComments from './getComments';
 import postComments from './postcomments';
 import getCommentsCounter from './commentCounter';
@@ -39,9 +40,8 @@ const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
   const commentsCard = document.createElement('button');
   commentsCard.classList.add('comments');
 
-const commentUpdate = async () => {
+  const commentUpdate = async () => {
     const comm = await getComments(dataid).catch(() => []);
-    console.log(comm)
     if (comm.length) {
       createComments(comm, formContainer);
       const commentsCount = getCommentsCounter();
@@ -69,7 +69,6 @@ const commentUpdate = async () => {
 
   commentBtn.addEventListener('click', async (e) => {
     e.preventDefault();
-    console.log('hello');
     const details = await postComments(dataid, name.value, commentInput.value);
     commentUpdate();
     form.reset();

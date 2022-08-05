@@ -1,5 +1,8 @@
-// import getComments from './getComments';
+/* eslint-disable */
+import getComments from './getComments';
 import postComments from './postcomments';
+import getCommentsCounter from './commentCounter';
+import createComments from './populateComments';
 
 const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
   const Modal = document.querySelector('.modal');
@@ -15,7 +18,7 @@ const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
   const dataSummary = document.createElement('div');
   dataSummary.classList.add('data-summary');
   dataSummary.innerHTML = datasummary;
-  imageSummary.append(imagePopUp);
+  imageSummary.append(imagePopUp, dataSummary);
 
   const dataInfo = document.createElement('div');
   dataInfo.classList.add('data-info');
@@ -24,7 +27,7 @@ const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
   titlePopUp.classList.add('title-popup');
   titlePopUp.innerText = dataname;
 
-  const closeIcon = document.createElement('button');
+  const closeIcon = document.createElement('div');
   closeIcon.classList.add('close-icon');
   closeIcon.innerHTML = '&#x3a7';
 
@@ -34,59 +37,48 @@ const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
   const comments = document.createElement('div');
   comments.classList.add('comments-popup');
 
-  const commentsCard = document.createElement('box');
+  const commentsCard = document.createElement('button');
   commentsCard.classList.add('comments');
-  const rowInfo = document.createElement('row-info');
-  const dateInfo = document.createElement('info');
-  dateInfo.textContent = 'Date';
-  const nameInfo = document.createElement('info');
-  nameInfo.textContent = 'Great movie';
-  const headerInfo = document.createElement('info');
-  headerInfo.textContent = 'Comments';
-  rowInfo.append(dateInfo, nameInfo, headerInfo);
 
-  // const cardBody = document.createElement('card-body');
-  // cardBody.classList.add('card-body');
-  // commentsCard.append(rowInfo, cardBody);
+  const commentUpdate = async () => {
+    const comm = await getComments(dataid).catch(() => []);
+    if (comm.length) {
+      createComments(comm, formContainer);
+      const commentsCount = getCommentsCounter();
+      comments.textContent = `comments (${commentsCount})`;
+    } else {
+      comments.textContent = 'comments (0)';
+    }
+  };
+  commentUpdate();
 
-  // const commentUpdate = async () => {
-  //     const comm = await getComments(dataid).catch(() => []);
-  //     if (comm.length) {
-  //         createComments(comm);
-  //         const commentCount = getCommentsCount();
-  //         comments.textContent = `comments (${commentCount})`;
-  //     } else {
-  //         comments.textContent = 'comments (0)';
-  //     }
-  // };
-  // commentUpdate();
   const formContainer = document.createElement('div');
   formContainer.classList.add('form-container');
   const h3 = document.createElement('h3');
   h3.textContent = 'Add a comment';
-
   const form = document.createElement('form');
   form.classList.add('form-comment');
-  const name = document.createElement('name-input');
+  const name = document.createElement('input');
+  name.classList.add('input-name');
   const commentInput = document.createElement('textarea');
+  commentInput.classList.add('text');
   const commentBtn = document.createElement('button');
   commentBtn.classList.add('comment-btn');
-  commentBtn.textContent = 'Comments';
-  form.append(name, commentInput, commentBtn);
+  commentBtn.textContent = 'titi';
+  formContainer.append(h3, name, commentInput, form, commentBtn);
 
   commentBtn.addEventListener('click', async (e) => {
     e.preventDefault();
-    await postComments(dataid, name.value, commentInput.value, new Date());
-    // commentUpdate();
+    const details = await postComments(dataid, name.value, commentInput.value);
+    commentUpdate();
     form.reset();
   });
 
-  formContainer.append(h3, form);
   const title = document.createElement('div');
   title.classList.add('popup-title-container');
   titlePopUp.classList.add('pop-title');
   title.append(titlePopUp, closeIcon);
-  commentsContainer.append();
+  commentsContainer.append(formContainer, commentsCard);
   modalPopUp.append(title, imageSummary, comments, commentsContainer);
 
   Modal.style.display = 'flex';
@@ -97,5 +89,4 @@ const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
     modalPopUp.style.display = 'none';
   });
 };
-
 export default Modal;

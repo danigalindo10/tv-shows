@@ -1,6 +1,5 @@
 import getComments from './getComments';
 import postComments from './postcomments';
-import getCommentsCounter from './commentCounter';
 import createComments from './populateComments';
 
 const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
@@ -44,12 +43,10 @@ const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
   commentArea.classList.add('comment-area');
   commentsCard.appendChild(commentArea);
 
-const commentUpdate = async (commentArea) => {
+  const commentUpdate = async (commentArea) => {
     const comm = await getComments(dataid).catch(() => []);
-    console.log(comm)
     if (comm.length < 1 || comm.length === undefined) {
-
-      comments.textContent = `comments (0)`;
+      comments.textContent = 'comments (0)';
     } else {
       comm.forEach((comment) => {
         createComments(comment, commentArea);
@@ -66,17 +63,19 @@ const commentUpdate = async (commentArea) => {
   form.classList.add('form-comment');
   const name = document.createElement('input');
   name.classList.add('input-name');
+  name.placeholder = 'Enter your name...';
   const commentInput = document.createElement('textarea');
   commentInput.classList.add('text');
+  commentInput.placeholder = 'Write a message';
   const commentBtn = document.createElement('button');
   commentBtn.classList.add('comment-btn');
-  commentBtn.textContent = 'titi';
+  commentBtn.textContent = 'Submit';
   formContainer.append(h3, name, commentInput, form, commentBtn);
 
   commentBtn.addEventListener('click', async (e) => {
     e.preventDefault();
     commentArea.innerHTML = '';
-    const details = await postComments(dataid, name.value, commentInput.value);
+    await postComments(dataid, name.value, commentInput.value);
     commentUpdate(commentArea);
     name.value = '';
     commentInput.value = '';

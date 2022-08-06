@@ -1,4 +1,5 @@
 import getComments from './getComments';
+import postComments from './postcomments';
 import createComments from './populateComments';
 
 const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
@@ -74,6 +75,7 @@ const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
   commentBtn.addEventListener('click', async (e) => {
     e.preventDefault();
     commentArea.innerHTML = '';
+    await postComments(dataid, name.value, commentInput.value);
     commentUpdate(commentArea);
     name.value = '';
     commentInput.value = '';

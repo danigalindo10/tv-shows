@@ -241,6 +241,7 @@ span {
   flex-direction: column;
   margin: 0 auto;
   width: 20%;
+  order: 1;
 }
 
 .individual-comment {
@@ -253,8 +254,9 @@ span {
 
 .comment-area {
   background-color: #fff;
-  height: 20px;
+  height: 200px;
   overflow-y: auto;
+  order: 0;
 }
 
 .input-name {
@@ -279,14 +281,7 @@ span {
 
 .popup-title-container {
   float: right;
-}
-
-.pop-title {
   font-weight: 700;
-}
-
-h3 {
-  display: flex;
 }
 
 .data-summary {
@@ -295,14 +290,15 @@ h3 {
   font-weight: 700;
 }
 
-.image-popup {
-  border: 20px solid #000;
-  border-radius: 15px;
-  background-color: red;
+h3 {
+  display: flex;
 }
 
-.image-popup:hover {
-  border: white solid;
+.image-popup {
+  border: 20px solid #000;
+  border-radius: 10px;
+  margin: 0 auto;
+  background-color: red;
 }
 
 .footer {

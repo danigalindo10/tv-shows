@@ -13,4 +13,3 @@ const postComments = (id, username, comment) => fetch(`${baseUrl}/${appId}/comme
 });
 
 export default postComments;
-

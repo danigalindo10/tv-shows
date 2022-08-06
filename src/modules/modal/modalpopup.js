@@ -62,7 +62,7 @@ const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
   form.classList.add('form-comment');
   const name = document.createElement('input');
   name.classList.add('input-name');
-  name.placeholder = 'Enter your name...'
+  name.placeholder = 'Enter your name...';
   const commentInput = document.createElement('textarea');
   commentInput.classList.add('text');
   commentInput.placeholder = 'Write a message';

@@ -46,12 +46,12 @@ const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
   const commentUpdate = async (commentArea) => {
     const comm = await getComments(dataid).catch(() => []);
     if (comm.length < 1 || comm.length === undefined) {
-      comments.textContent = 'comments (0)';
+      comments.textContent = 'Comments (0)';
     } else {
       comm.forEach((comment) => {
         createComments(comment, commentArea);
       });
-      comments.textContent = `comments (${comm.length})`;
+      comments.textContent = `Comments (${comm.length})`;
     }
   };
 

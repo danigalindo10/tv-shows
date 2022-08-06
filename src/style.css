@@ -212,7 +212,7 @@ span {
 /* Modal */
 
 .title-popup-pop-title {
-  display:flex;
+  display: flex;
   align-items: flex-start;
   gap: 46px;
   padding-top: 10px;
@@ -222,7 +222,7 @@ span {
 .modal {
   position: fixed;
   background-color: #e0ce00;
-  padding: 0px;
+  padding: 0;
   z-index: 999999;
   top: 0;
   height: 100vh;
@@ -248,7 +248,7 @@ span {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: 10%;
+  width: 11%;
   order: 1;
 }
 

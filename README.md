@@ -1,6 +1,7 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # Capstone Project
+For this capstone project, Titi Apuabi and me, Daniel Galindo, created a webpage where we can see series of different kinds, called TV MAX. We have been able to do this using webpack and getting the data form TVMAZE API. On TV MAX, every user will be able to comment and like their favorite series of all time, so don't hesitate to let us know your opinion, we would love to hear from you.
 
 ## Built With
 - HTML
@@ -10,8 +11,8 @@
 - Jest
 - API
 
-## Live Demo (available)
-[Live Demo Link](https://danigalindo10.github.io/tv-shows/dist/)
+## Video Record
+[Video Link](https://drive.google.com/file/d/1Lh1NYk8u-_DQewq2edx8jqZ185FTV8Sw/view?usp=sharing)
 
 ## Getting Started
 To get a local copy up and running follow these simple example steps.
@@ -21,7 +22,7 @@ To get a local copy up and running follow these simple example steps.
 - Set up linter > Lighthouse, Webhint, Stylelint and Eslint.
 
 ### Run tests
-Open your favourite code editor (Optional VSCode), and type on the terminal the `npm run dev` command to see the results. 
+Open your favourite code editor (Optional VSCode), and type on the terminal the `npm run build` and `npm ru start` commands to see the results. 
 
 To get a local copy up and running follow these simple example steps.
 

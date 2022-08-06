@@ -1,4 +1,3 @@
-/* eslint-disable */
 import getComments from './getComments';
 import postComments from './postcomments';
 import getCommentsCounter from './commentCounter';
@@ -37,20 +36,27 @@ const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
   const comments = document.createElement('div');
   comments.classList.add('comments-popup');
 
-  const commentsCard = document.createElement('button');
+  const commentsCard = document.createElement('div');
   commentsCard.classList.add('comments');
+  comments.appendChild(commentsCard);
 
-  const commentUpdate = async () => {
+  const commentArea = document.createElement('div');
+  commentArea.classList.add('comment-area');
+  commentsCard.appendChild(commentArea);
+
+const commentUpdate = async (commentArea) => {
     const comm = await getComments(dataid).catch(() => []);
-    if (comm.length) {
-      createComments(comm, formContainer);
-      const commentsCount = getCommentsCounter();
-      comments.textContent = `comments (${commentsCount})`;
+    console.log(comm)
+    if (comm.length < 1 || comm.length === undefined) {
+
+      comments.textContent = `comments (0)`;
     } else {
-      comments.textContent = 'comments (0)';
+      comm.forEach((comment) => {
+        createComments(comment, commentArea);
+      });
+      comments.textContent = `comments (${comm.length})`;
     }
   };
-  commentUpdate();
 
   const formContainer = document.createElement('div');
   formContainer.classList.add('form-container');
@@ -60,27 +66,28 @@ const Modal = async (dataname, dataimagemedium, dataid, datasummary) => {
   form.classList.add('form-comment');
   const name = document.createElement('input');
   name.classList.add('input-name');
-  name.placeholder = 'Enter you name...'
   const commentInput = document.createElement('textarea');
   commentInput.classList.add('text');
-  commentInput.placeholder = 'Write a message...'
   const commentBtn = document.createElement('button');
   commentBtn.classList.add('comment-btn');
-  commentBtn.textContent = 'Submit';
+  commentBtn.textContent = 'titi';
   formContainer.append(h3, name, commentInput, form, commentBtn);
 
   commentBtn.addEventListener('click', async (e) => {
     e.preventDefault();
+    commentArea.innerHTML = '';
     const details = await postComments(dataid, name.value, commentInput.value);
-    commentUpdate();
-    form.reset();
+    commentUpdate(commentArea);
+    name.value = '';
+    commentInput.value = '';
   });
+  commentUpdate(commentArea);
 
   const title = document.createElement('div');
   title.classList.add('popup-title-container');
   titlePopUp.classList.add('pop-title');
   title.append(titlePopUp, closeIcon);
-  commentsContainer.append(formContainer, commentsCard);
+  commentsContainer.append(commentsCard, formContainer);
   modalPopUp.append(title, imageSummary, comments, commentsContainer);
 
   Modal.style.display = 'flex';

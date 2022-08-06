@@ -4,3 +4,4 @@ const getComments = (itemId) => fetch(`${baseUrl}/${appId}/comments?item_id=${it
   .then((response) => response.json());
 
 export default getComments;
+

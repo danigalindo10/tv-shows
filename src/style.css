@@ -248,11 +248,11 @@ span {
 }
 
 .individual-comment:nth-child(even) {
-  background-color: #fff;
+  background-color: #e0ce00;
 }
 
 .comment-area {
-  background-color: #e0ce00;
+  background-color: #fff;
   height: 20px;
   overflow-y: auto;
 }
@@ -297,6 +297,12 @@ h3 {
 
 .image-popup {
   border: 20px solid #000;
+ border-radius: 15px;
+  background-color: red;
+}
+
+.image-popup:hover {
+  border: white solid;
 }
 
 .footer {

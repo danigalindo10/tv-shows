@@ -248,12 +248,12 @@ span {
 }
 
 .individual-comment:nth-child(even) {
-  background-color: blue;
+  background-color: #e0ce00;
 }
 
 .comment-area {
-  background-color: green;
-  height: 200px;
+  background-color: #fff;
+  height: 20px;
   overflow-y: auto;
 }
 
@@ -281,13 +281,28 @@ span {
   float: right;
 }
 
+.pop-title {
+  font-weight: 700;
+}
+
+h3 {
+  display: flex;
+}
+
 .data-summary {
   margin: 10px;
   padding: 15px;
+  font-weight: 700;
 }
 
 .image-popup {
-  padding: 2%;
+  border: 20px solid #000;
+  border-radius: 15px;
+  background-color: red;
+}
+
+.image-popup:hover {
+  border: white solid;
 }
 
 .footer {

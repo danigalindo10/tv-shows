@@ -4,7 +4,7 @@ import getTotalLikes from './likes/getLikes';
 
 let shows = [];
 
-export const renderShows = () => {
+export const displayShows = () => {
   elementInfo.showCount(shows);
   shows.forEach((data) => {
     if (data.image !== null) {

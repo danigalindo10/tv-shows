@@ -1,8 +1,8 @@
-import showsGot, { renderShows } from './get-shows';
+import showsGot, { displayShows } from './get-shows';
 
 const populate = async () => {
   await showsGot();
-  renderShows();
+  displayShows();
 };
 
 export default populate;

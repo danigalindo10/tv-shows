@@ -1,7 +1,6 @@
 import Modal from './modal/modalpopup';
 import addLike from './likes/postLikes';
 
-// CREATE ELEMENTS BASED ON INDEX.HTML
 class elementInfo {
   static showCount = (shows) => {
     const showsNumber = document.querySelector('.item-counter');
@@ -12,53 +11,42 @@ class elementInfo {
     const cardContainer = document.querySelector('.grid-container');
     const card = document.createElement('div');
     card.classList.add('card');
+    cardContainer.append(card);
+    const dataInfo = `
+    <div class="image-container">
+      <img
+        class="item-image"
+        src="${imgUrl}"
+      />
+    </div>
+    <div class="item-info">
+      <h2 class="item-title">${title}</h2>
+      <div class="likes-container">
+        <i id="heart${itemID}" class="fa-solid fa-heart"></i>
+        <span id="likes${itemID}">${like}</span>
+      </div>
+    </div>
+    <button id="comments${itemID}" class="comments-button">Comments</button>
+    `;
 
-    const imageContainer = document.createElement('div');
-    imageContainer.classList.add('image-container');
-    const image = document.createElement('img');
-    image.classList.add('item-image');
-    image.src = imgUrl;
-    const itemInfo = document.createElement('div');
-    itemInfo.classList.add('item-info');
+    card.innerHTML = dataInfo;
 
-    const itemTitle = document.createElement('h2');
-    itemTitle.classList.add('item-title');
-    itemTitle.innerText = title;
-
-    const likesContainer = document.createElement('div');
-    likesContainer.classList.add('likes-container');
-    const likesNumber = document.createElement('span');
-    likesNumber.textContent = like;
-
-    // PRINT TOTAL LIKES - RECORDED ON THE Involvement API
     const updateLikes = () => {
-      const currentLikes = likesNumber.innerText;
-      likesNumber.innerText = currentLikes ? Number(currentLikes) + 1 : 1;
+      const currentLikes = document.querySelector(`#likes${itemID}`).innerText;
+      document.querySelector(`#likes${itemID}`).innerText = currentLikes ? Number(currentLikes) + 1 : 1;
     };
 
-    const heartIcon = document.createElement('i');
-    heartIcon.classList.add('fa-solid', 'fa-heart');
-
-    const commentsButton = document.createElement('button');
-    commentsButton.classList.add('comments-button');
-    commentsButton.textContent = 'Comments';
+    const commentsButton = document.querySelector(`#comments${itemID}`);
 
     commentsButton.addEventListener('click', () => Modal(title, imgUrl, itemID, summary));
 
-    // ADD LIKES - RECORDED ON THE Involvement API
+    const heartIcon = document.querySelector(`#heart${itemID}`);
+
     heartIcon.addEventListener('click', async (e) => {
       e.preventDefault();
       updateLikes();
       await addLike(itemID);
     });
-
-    // append elements to the card container
-    cardContainer.append(card);
-    card.append(imageContainer, itemInfo, commentsButton);
-
-    imageContainer.append(image);
-    itemInfo.append(itemTitle, likesContainer);
-    likesContainer.append(heartIcon, likesNumber);
   };
 }
 export default elementInfo;
